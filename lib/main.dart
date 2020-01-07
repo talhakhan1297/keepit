@@ -21,7 +21,7 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   var doc;
-  
+
   void _addTodoItem(String title, String note, Timestamp timestamp) {
     if (title == null) {
       title = "";
@@ -46,7 +46,8 @@ class _MyAppState extends State<MyApp> {
     });
   }
 
-  void _updateTodoItem(String title, String note, DocumentSnapshot document, Timestamp timestamp) {
+  void _updateTodoItem(String title, String note, DocumentSnapshot document,
+      Timestamp timestamp) {
     if (title == null) {
       title = "";
     }
@@ -100,7 +101,7 @@ class _MyAppState extends State<MyApp> {
           title: Padding(
             padding: const EdgeInsets.fromLTRB(0.0, 4.0, 0.0, 4.0),
             child: Text(
-              document['title'],
+              (document['title'] == null) ? '' : document['title'],
               style: TextStyle(
                 color: Colors.white,
                 fontSize: 16.0,
@@ -112,7 +113,7 @@ class _MyAppState extends State<MyApp> {
           subtitle: Padding(
             padding: const EdgeInsets.fromLTRB(0.0, 4.0, 0.0, 4.0),
             child: Text(
-              document['note'],
+              (document['note'] == null) ? '' : document['note'],
               style: TextStyle(
                 color: Colors.white,
                 fontFamily: 'Poppins',
